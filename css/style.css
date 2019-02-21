@@ -1,0 +1,94 @@
+html, body {
+	padding: 0;
+	margin: 0;
+	font-size: 18px;
+	font-family: sans-serif;
+	color: #333333;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	background-color: darkgrey;
+}
+
+.task_1, .task_2 {
+	flex: 1;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.task_1 .select-menu, .task_2 .autocomplete {
+	margin: auto 5rem;
+}
+
+.button button {
+	margin: 10px 0;
+	width: 100px;
+	padding: 5px;
+}
+
+.button input {
+	margin: 10px 0;
+	width: 20px;
+	padding: 5px;
+	text-align: center;
+}
+
+.tt-select-menu-wrap {
+	display: inline-block;
+	cursor: pointer;
+}
+
+.tt-select-menu-input {
+	padding: 0.5rem;
+	padding-right: 1rem;
+	border: 2px solid #ffbc1e;
+	border-radius: 3px;
+	cursor: pointer;
+	width: 15rem;
+	font-size: 1rem;
+}
+
+.tt-select-menu-arrow-bottom {
+	display: inline-block;
+	margin-left: -30px;
+	width: 0;
+	height: 0;
+	border: 10px solid transparent;
+	border-top-color: #ffbc1e;
+	border-bottom: 0;
+}
+
+.tt-select-menu-items-wrap {
+	position: relative;
+}
+.tt-select-menu-items {
+	position: absolute;
+	top:0;
+	left: 0;
+	right: 0;
+
+	list-style: none;
+	margin: 0 2px;
+	padding: 0;
+	background-color: #fff;
+	border: 2px solid #ffbc1e;
+	border-top: 0;
+	border-radius: 0 0 3px 3px;
+
+
+}
+.tt-select-menu-item {
+	padding: .4rem;
+
+}
+
+.tt-select-menu-item:hover {
+	background-color: #ffbc1e;
+}
+
+.tt-select-menu-input-invalid {
+	border-color: red;
+}

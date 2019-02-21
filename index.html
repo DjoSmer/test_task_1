@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en" id="doc">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Тестовое задание</title>
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+<div class="task_1">
+    <div class="select-menu">
+        <label for="selectMenu">Выбор из списка:</label>
+        <select id="selectMenu" name="test_task_name">
+            <option value="0">Нет</option>
+            <option value="1">Элемент 1</option>
+            <option value="2">Элемент 2</option>
+            <option value="3">Элемент 3</option>
+            <option value="4">Элемент 4</option>
+            <option value="5">Элемент 5</option>
+            <option value="6">Элемент 6</option>
+        </select>
+
+        <div class="button">
+            <input id="input_set" value="1"><button id="button-set">set</button>
+            <button id="button-get">get</button>
+            <button id="button-reset">reset</button>
+        </div>
+    </div>
+</div>
+
+<div class="task_2">
+    <div class="autocomplete">
+        <label for="tags">Tags: </label>
+        <input id="tags" required>
+        <div class="button">
+            <input id="tagsInputSet" value="1"><button id="tagsButtonSet">set</button>
+            <button id="tagsButtonGet">get</button>
+            <button id="tagsButtonReset">reset</button>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="js/selectmenu.js"></script>
+
+<script>
+    'use strict';
+
+    let combobox;
+    $( function() {
+
+        let select_menu = $("#selectMenu");
+
+        let smenu = new SelectMenu(select_menu, {test:222});
+
+        $("#button-set").click(function () {
+            let value = $('#tagsInputSet').val();
+            smenu.set(value);
+        });
+        $("#button-get").click(function () {
+            let value = smenu.get();
+            alert(value);
+        });
+        $("#button-reset").click(function () {
+            smenu.reset();
+        });
+
+        let availableTags = [
+            "ActionScript",
+            "AppleScript",
+            "Asp",
+            "BASIC",
+            "C",
+            "C++",
+            "Clojure",
+            "COBOL",
+            "ColdFusion",
+            "Erlang",
+            "Ruby",
+            "Fortran",
+            "Groovy",
+            "Haskell",
+            "JavaScript",
+            "Java",
+            "Lisp",
+            "Perl",
+            "PHP",
+            "Python",
+            "Scala",
+            "Scheme"
+        ];
+
+        combobox = new ComboBox($("#tags"), {
+            source: availableTags,
+            limit: 5,
+            minLength: 3
+        });
+
+        $("#tagsButtonSet").click(function () {
+            let value = $('#input_set').val();
+            combobox.set(value);
+        });
+        $("#tagsButtonGet").click(function () {
+            let value = combobox.get();
+            alert(value);
+        });
+        $("#tagsButtonReset").click(function () {
+            combobox.reset();
+        });
+
+    } );
+</script>
+</body>
+</html>
